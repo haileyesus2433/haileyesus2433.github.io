@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+build
+.svelte-kit
+node_modules
+src/content
+CLAUDE.md
+.claude
+content
+PROMPTS.md
+README.md
