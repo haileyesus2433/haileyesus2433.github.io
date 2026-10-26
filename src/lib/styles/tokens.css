@@ -1,0 +1,79 @@
+/* Annotated source: near-white with a slight green bias, deep teal accent.
+   Contrast (WCAG): text 16:1, muted 6.4:1, accent 6.1:1 on bg, all above AA in both themes. */
+
+:root {
+	--bg: #fbfbf8;
+	--surface: #f4f6f4;
+	--text: #1b1f1e;
+	--muted: #565e5c;
+	--accent: #0e6b63;
+	--accent-strong: #0a5049;
+	--rule: #dce0dd;
+	--code-bg: #f1f4f2; /* also set in highlight.ts */
+	--code-text: #1b1f1e;
+	--focus: #0e6b63;
+	--selection: #cfe6e2;
+
+	--font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+	--font-body: 'Source Sans 3', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+	/* Type scale, ratio about 1.2, body 18px. Top steps grow with the viewport. */
+	--step--1: 0.875rem;
+	--step-0: 1.125rem;
+	--step-1: 1.3125rem;
+	--step-2: 1.5625rem;
+	--step-3: clamp(1.75rem, 1.5rem + 1vw, 2.125rem);
+	--step-4: clamp(2.125rem, 1.6rem + 2.2vw, 3rem);
+
+	--leading: 1.6;
+	--leading-tight: 1.2;
+
+	--space-3xs: 0.25rem;
+	--space-2xs: 0.5rem;
+	--space-xs: 0.75rem;
+	--space-s: 1rem;
+	--space-m: 1.5rem;
+	--space-l: 2rem;
+	--space-xl: 3rem;
+	--space-2xl: 4.5rem;
+
+	--measure: 65ch;
+	--page-max: 72rem;
+	--gutter: max(1rem, 4vw);
+	--radius: 2px;
+
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		--bg: #121615;
+		--surface: #171c1b;
+		--text: #e2e7e5;
+		--muted: #9ba6a2;
+		--accent: #5cc7b8;
+		--accent-strong: #8ad8cd;
+		--rule: #28302e;
+		--code-bg: #181e1c;
+		--code-text: #e2e7e5;
+		--focus: #5cc7b8;
+		--selection: #1f4a44;
+		color-scheme: dark;
+	}
+}
+
+:root[data-theme='dark'] {
+	--bg: #121615;
+	--surface: #171c1b;
+	--text: #e2e7e5;
+	--muted: #9ba6a2;
+	--accent: #5cc7b8;
+	--accent-strong: #8ad8cd;
+	--rule: #28302e;
+	--code-bg: #181e1c;
+	--code-text: #e2e7e5;
+	--focus: #5cc7b8;
+	--selection: #1f4a44;
+	color-scheme: dark;
+}

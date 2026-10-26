@@ -1,0 +1,257 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: var(--step-0);
+	line-height: var(--leading);
+	font-kerning: normal;
+	text-rendering: optimizeLegibility;
+	overflow-wrap: break-word;
+}
+
+::selection {
+	background: var(--selection);
+	color: var(--text);
+}
+
+/* Headings. Fraunces only for the page title; the rest stay in the body face. */
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	line-height: var(--leading-tight);
+	text-wrap: balance;
+}
+
+h1 {
+	font-family: var(--font-display);
+	font-weight: 560;
+	font-variation-settings: 'SOFT' 50;
+	font-size: var(--step-4);
+	letter-spacing: -0.01em;
+}
+
+h2 {
+	font-size: var(--step-2);
+	font-weight: 600;
+}
+
+h3 {
+	font-size: var(--step-1);
+	font-weight: 600;
+}
+
+p,
+ul,
+ol {
+	margin: 0;
+}
+
+/* Vertical rhythm for any run of content. */
+.flow > * + * {
+	margin-top: var(--space-s);
+}
+
+.flow > * + :is(h2, h3) {
+	margin-top: var(--space-xl);
+}
+
+.flow > :is(h2, h3) + * {
+	margin-top: var(--space-xs);
+}
+
+/* Links */
+
+a {
+	color: var(--accent);
+	text-decoration-line: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+	transition: text-decoration-thickness 120ms ease;
+}
+
+a:hover {
+	color: var(--accent-strong);
+	text-decoration-thickness: 2px;
+}
+
+/* Focus: visible on every interactive element, keyboard only. */
+
+:focus-visible {
+	outline: 3px solid var(--focus);
+	outline-offset: 3px;
+	border-radius: var(--radius);
+}
+
+/* Skip link */
+
+.skip-link {
+	position: absolute;
+	left: var(--gutter);
+	top: var(--space-2xs);
+	z-index: 10;
+	padding: var(--space-2xs) var(--space-s);
+	background: var(--bg);
+	color: var(--accent);
+	font-weight: 600;
+	transform: translateY(-200%);
+}
+
+.skip-link:focus {
+	transform: none;
+}
+
+/* Page frame. Text sits in a left-aligned 65ch column; wide content and
+   margin notes use the space to its right on large screens. */
+
+.page {
+	width: 100%;
+	max-width: var(--page-max);
+	margin-inline: auto;
+	padding-inline: var(--gutter);
+}
+
+.columns {
+	display: grid;
+	grid-template-columns: [text-start wide-start] minmax(
+			0,
+			1fr
+		) [text-end margin-start] 0 [margin-end wide-end];
+	column-gap: 0;
+}
+
+.columns > * {
+	grid-column: text;
+}
+
+.columns > :is(pre, .wide) {
+	grid-column: wide;
+}
+
+@media (min-width: 64rem) {
+	.columns {
+		grid-template-columns:
+			[text-start wide-start] minmax(0, var(--measure))
+			[text-end margin-start] minmax(12rem, 1fr)
+			[margin-end wide-end];
+		column-gap: var(--space-l);
+	}
+}
+
+/* Prose width when not in the grid. */
+.measure {
+	max-width: var(--measure);
+}
+
+/* Code */
+
+code,
+kbd,
+samp,
+pre {
+	font-family: var(--font-mono);
+	font-size: 0.875em;
+	font-variant-ligatures: none;
+}
+
+:not(pre) > code {
+	padding: 0.1em 0.3em;
+	background: var(--code-bg);
+	color: var(--code-text);
+	border-radius: var(--radius);
+	overflow-wrap: anywhere;
+}
+
+pre {
+	margin: 0;
+	padding: var(--space-s) var(--space-m);
+	background: var(--code-bg);
+	color: var(--code-text);
+	border-left: 3px solid var(--accent);
+	line-height: 1.6;
+	/* Scroll inside the block; the page never scrolls sideways. */
+	overflow-x: auto;
+	tab-size: 4;
+}
+
+pre code {
+	font-size: inherit;
+}
+
+/* Shiki writes a light and a dark color on every token; pick one per theme. */
+.shiki,
+.shiki span {
+	color: var(--shiki-light);
+}
+
+.shiki {
+	background: var(--code-bg) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) .shiki,
+	:root:not([data-theme='light']) .shiki span {
+		color: var(--shiki-dark);
+	}
+}
+
+:root[data-theme='dark'] .shiki,
+:root[data-theme='dark'] .shiki span {
+	color: var(--shiki-dark);
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+	margin-top: var(--space-2xs);
+	color: var(--muted);
+	font-size: var(--step--1);
+}
+
+figcaption code {
+	font-size: 1em;
+}
+
+/* Utilities */
+
+.muted {
+	color: var(--muted);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+		animation: none !important;
+		scroll-behavior: auto !important;
+	}
+}
