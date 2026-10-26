@@ -54,6 +54,3 @@ if max_entry_size == 0 {
 <figcaption>Placeholder caption. <a href="https://github.com/JanssenProject/jans/blob/c820fc3e3e44b089834c45f403756cd1f0046e57/jans-cedarling/cedarling/src/common/policy_store/archive_handler.rs#L446-L460"><code>cedarling/src/common/policy_store/archive_handler.rs</code></a></figcaption>
 </figure>
 
-## What I'd change
-
-Placeholder. Honest and specific.

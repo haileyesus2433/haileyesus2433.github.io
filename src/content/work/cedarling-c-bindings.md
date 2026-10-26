@@ -32,10 +32,6 @@ C never holds a pointer to a Rust object. `cedarling_new` returns a `u64` ID, an
 
 An ID that was never issued, or was already dropped, returns `InstanceNotFound` instead of touching freed memory. The cost is a global `Mutex` on every call. `get_instance` clones the instance and releases the lock before the request runs, so the lock covers only the lookup.
 
-## What I'd change
-
-TODO(you): what would you change about the C bindings now?
-
 <figure class="excerpt">
 
 ```rust start=43 notes=44,56

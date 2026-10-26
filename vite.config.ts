@@ -8,6 +8,13 @@ export default defineConfig(({ mode }) => ({
 	plugins: [
 		sveltekit({
 			adapter: adapter({ strict: true }),
+			prerender: {
+				handleHttpError: ({ path, message }) => {
+					// The CV is added by hand. Until static/cv.pdf exists, its link is the one allowed 404.
+					if (path === '/cv.pdf') return;
+					throw new Error(message);
+				}
+			},
 			extensions: ['.svelte', '.md'],
 			preprocess: [mdsvex({ extensions: ['.md'], highlight: { highlighter: highlight } })],
 			paths: {
