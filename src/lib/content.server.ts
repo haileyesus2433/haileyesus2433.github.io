@@ -1,4 +1,10 @@
-import type { NoteMeta, WorkMeta, WorkStatus } from './content.ts';
+import {
+	WORK_GROUPS,
+	type NoteMeta,
+	type WorkGroup,
+	type WorkMeta,
+	type WorkStatus
+} from './content.ts';
 
 type Frontmatter = Record<string, unknown> | undefined;
 
@@ -44,6 +50,11 @@ function parseWork(path: string, m: Record<string, unknown>): WorkMeta {
 	if (!WORK_STATUSES.includes(status as WorkStatus)) {
 		fail(path, 'status', WORK_STATUSES.join(' | '));
 	}
+	const groups = WORK_GROUPS.map((g) => g.id);
+	if (!groups.includes(m.group as WorkGroup)) fail(path, 'group', groups.join(' | '));
+	if (m.status === 'coursework' && m.group !== 'coursework') {
+		fail(path, 'group', '"coursework" when status is coursework');
+	}
 	if (typeof m.order !== 'number') fail(path, 'order', 'a number');
 	const links = (m.links ?? {}) as Record<string, unknown>;
 	for (const [key, url] of Object.entries(links)) {
@@ -58,8 +69,10 @@ function parseWork(path: string, m: Record<string, unknown>): WorkMeta {
 		role: str(m, path, 'role'),
 		stack: strList(m, path, 'stack'),
 		status: status as WorkStatus,
+		group: m.group as WorkGroup,
 		links: links as WorkMeta['links'],
-		order: m.order
+		order: m.order,
+		featured: m.featured === true
 	};
 }
 
@@ -85,6 +98,10 @@ const notes: NoteMeta[] = Object.entries(noteMeta)
 
 export function listWork(): WorkMeta[] {
 	return work;
+}
+
+export function listFeaturedWork(): WorkMeta[] {
+	return work.filter((m) => m.featured);
 }
 
 export function getWorkMeta(slug: string): WorkMeta | undefined {

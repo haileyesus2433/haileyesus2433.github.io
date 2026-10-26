@@ -2,6 +2,15 @@ import type { Component } from 'svelte';
 
 export type WorkStatus = 'shipped' | 'in progress' | 'coursework';
 
+export type WorkGroup = 'open-source' | 'solana' | 'other' | 'coursework';
+
+export const WORK_GROUPS: { id: WorkGroup; label: string }[] = [
+	{ id: 'open-source', label: 'Open source' },
+	{ id: 'solana', label: 'Solana' },
+	{ id: 'other', label: 'Other' },
+	{ id: 'coursework', label: 'Coursework' }
+];
+
 export interface WorkMeta {
 	slug: string;
 	title: string;
@@ -9,8 +18,10 @@ export interface WorkMeta {
 	role: string;
 	stack: string[];
 	status: WorkStatus;
-	links: { code?: string; pr?: string; demo?: string };
+	group: WorkGroup;
+	links: { code?: string; pr?: string; demo?: string; crate?: string };
 	order: number;
+	featured: boolean;
 }
 
 export interface NoteMeta {

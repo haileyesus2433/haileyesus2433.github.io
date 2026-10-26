@@ -127,10 +127,9 @@ a:hover {
 
 .columns {
 	display: grid;
-	grid-template-columns: [text-start wide-start] minmax(
-			0,
-			1fr
-		) [text-end margin-start] 0 [margin-end wide-end];
+	grid-template-columns:
+		[text-start wide-start] minmax(0, 1fr)
+		[text-end margin-start] 0 [margin-end wide-end];
 	column-gap: 0;
 }
 
@@ -138,7 +137,7 @@ a:hover {
 	grid-column: text;
 }
 
-.columns > :is(pre, .wide) {
+.columns > :is(pre, .wide, .excerpt) {
 	grid-column: wide;
 }
 
@@ -253,5 +252,102 @@ figcaption code {
 		transition: none !important;
 		animation: none !important;
 		scroll-behavior: auto !important;
+	}
+}
+
+/* Line numbers match the source file (start= in the fence), and noted
+   lines (notes= in the fence) get a tint and an accent number. */
+
+.shiki code {
+	display: inline-block;
+	min-width: 100%;
+	counter-reset: line var(--line-start, 0);
+}
+
+/* Full-width inline blocks keep the real newlines in the markup, so the
+   code still reads line by line if CSS fails to load. */
+.shiki .line {
+	display: inline-block;
+	width: 100%;
+	padding-right: var(--space-m);
+}
+
+.shiki .line::before {
+	counter-increment: line;
+	content: counter(line);
+	display: inline-block;
+	width: 4ch;
+	margin-right: 2ch;
+	color: var(--muted);
+	text-align: right;
+	user-select: none;
+}
+
+.shiki .line.noted {
+	background: var(--note-line);
+	box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.shiki .line.noted::before {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+pre.shiki {
+	padding-inline: 0;
+	border-left: 0;
+}
+
+/* Excerpt: code, then notes beside it on wide screens and under it on phones. */
+
+.excerpt {
+	display: grid;
+	gap: var(--space-s) var(--space-l);
+	align-items: start;
+}
+
+.excerpt > figcaption {
+	margin-top: 0;
+}
+
+.notes {
+	display: grid;
+	gap: var(--space-s);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: var(--step--1);
+}
+
+.notes li {
+	padding-left: var(--space-xs);
+	border-left: 2px solid var(--accent);
+}
+
+.notes .ref {
+	display: block;
+	color: var(--accent);
+	font-family: var(--font-mono);
+	font-size: 0.8125rem;
+	font-weight: 600;
+}
+
+@media (min-width: 64rem) {
+	.excerpt:has(.notes) {
+		grid-template-columns: minmax(0, 1fr) 15rem;
+	}
+
+	.excerpt > pre {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.excerpt > .notes {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	.excerpt > figcaption {
+		grid-column: 1;
 	}
 }

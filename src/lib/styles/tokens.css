@@ -10,6 +10,7 @@
 	--accent-strong: #0a5049;
 	--rule: #dce0dd;
 	--code-bg: #f1f4f2; /* also set in highlight.ts */
+	--note-line: #e9f1ee; /* also set in highlight.ts */
 	--code-text: #1b1f1e;
 	--focus: #0e6b63;
 	--selection: #cfe6e2;
@@ -56,6 +57,7 @@
 		--accent-strong: #8ad8cd;
 		--rule: #28302e;
 		--code-bg: #181e1c;
+		--note-line: #1c2623;
 		--code-text: #e2e7e5;
 		--focus: #5cc7b8;
 		--selection: #1f4a44;
@@ -72,6 +74,7 @@
 	--accent-strong: #8ad8cd;
 	--rule: #28302e;
 	--code-bg: #181e1c;
+	--note-line: #1c2623;
 	--code-text: #e2e7e5;
 	--focus: #5cc7b8;
 	--selection: #1f4a44;

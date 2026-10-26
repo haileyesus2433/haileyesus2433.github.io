@@ -96,8 +96,12 @@
 	}
 
 	.site-footer {
-		padding-block: var(--space-l) var(--space-xl);
-		border-top: 1px solid var(--rule);
+		padding-block: 0 var(--space-xl);
 		font-size: var(--step--1);
+	}
+
+	.site-footer ul {
+		padding-top: var(--space-l);
+		border-top: 1px solid var(--rule);
 	}
 </style>

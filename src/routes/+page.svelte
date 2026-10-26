@@ -1,30 +1,75 @@
 <script lang="ts">
-	import Excerpt from '#lib/placeholder/archive-excerpt.md';
+	import { resolve } from '$app/paths';
+	import WorkList from '#lib/components/WorkList.svelte';
+
+	let { data } = $props();
 </script>
 
 <svelte:head>
-	<title>Haileyesus Ayanaw, Rust developer</title>
-	<meta name="description" content="Placeholder home page." />
+	<title>Haileyesus Ayanaw · Rust developer</title>
+	<meta
+		name="description"
+		content="Rust developer. Backend systems and blockchain. Open-source work on Cedarling, Solana programs and the dynarule crate."
+	/>
 </svelte:head>
 
 <div class="columns flow">
-	<h1>Placeholder heading for the home page</h1>
-	<p>
-		Placeholder intro paragraph. It sits in a 65 character column so you can judge the reading
-		width, the body face and the <a href="/work">link style</a>. Inline code looks like
-		<code>take(limit + 1)</code>.
-	</p>
-	<h2>Placeholder section heading</h2>
-	<p class="muted">Muted text, used for captions and secondary lines.</p>
-	<figure class="wide">
-		<Excerpt />
-		<figcaption>
-			Real excerpt for checking code styling:
-			<a
-				href="https://github.com/JanssenProject/jans/blob/c820fc3e3e44b089834c45f403756cd1f0046e57/jans-cedarling/cedarling/src/common/policy_store/archive_handler.rs#L446-L460"
-				><code>cedarling/src/common/policy_store/archive_handler.rs</code></a
-			>
-		</figcaption>
-	</figure>
-	<p>Another placeholder paragraph after the code block.</p>
+	<header class="intro flow">
+		<h1>Haileyesus Ayanaw</h1>
+		<p class="role">Rust developer. Backend systems and blockchain.</p>
+		<p>
+			I write Rust for backend services and Solana programs. Right now I contribute to Cedarling,
+			the authorization engine of the Janssen Project.
+		</p>
+	</header>
+
+	<section aria-labelledby="work-heading">
+		<h2 id="work-heading">Selected work</h2>
+		<WorkList items={data.featured} />
+		<p class="more"><a href={resolve('/work')}>All work</a></p>
+	</section>
+
+	<section aria-labelledby="now-heading" class="flow">
+		<h2 id="now-heading">Now</h2>
+		<ul class="now-list">
+			<li>
+				Contributing to Cedarling. My current open PR adds format versioning to the policy store.
+			</li>
+			<li>BlockRouter's MVP is done. It was my Turbin3 capstone.</li>
+			<li>Open to remote Rust backend and Solana work.</li>
+		</ul>
+	</section>
+
+	<section aria-labelledby="contact-heading" class="flow">
+		<h2 id="contact-heading">Contact</h2>
+		<p>
+			Email me at <a href="mailto:haileyesusbe@gmail.com">haileyesusbe@gmail.com</a>. I work
+			remotely from Addis Ababa, UTC+3.
+		</p>
+	</section>
 </div>
+
+<style>
+	.role {
+		color: var(--muted);
+		font-size: var(--step-1);
+	}
+
+	.intro {
+		margin-bottom: var(--space-xl);
+	}
+
+	section + section {
+		margin-top: var(--space-2xl);
+	}
+
+	.more {
+		margin-top: var(--space-m);
+	}
+
+	.now-list {
+		display: grid;
+		gap: var(--space-2xs);
+		padding-left: 1.25em;
+	}
+</style>
