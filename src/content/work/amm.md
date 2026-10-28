@@ -12,7 +12,7 @@ order: 8
 
 ## The problem
 
-A two-token pool has to price each swap from its own reserves, protect traders from price moves, and track who owns the liquidity. The pool also had to pay a protocol fee to a treasury.
+A two-token pool has to price each swap from its own reserves, protect traders from price moves, and track who owns the liquidity. The pool also pays a protocol fee to a treasury.
 
 ## What I built
 

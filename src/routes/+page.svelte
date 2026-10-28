@@ -9,7 +9,7 @@
 	<title>Haileyesus Ayanaw · Rust developer</title>
 	<meta
 		name="description"
-		content="Rust developer. Authorization engine features in Cedarling, Solana programs and backend services, with real code from each."
+		content="Rust developer. Authorization engine features in Cedarling, Solana programs and backend services, with case studies and real code."
 	/>
 </svelte:head>
 
@@ -33,7 +33,7 @@
 		<h2 id="now-heading">Now</h2>
 		<ul class="now-list">
 			<li>
-				Contributing to Cedarling. My current open PR adds format versioning to the policy store.
+				Contributing to Cedarling. My most recent PR added format versioning to the policy store.
 			</li>
 			<li>BlockRouter's MVP is done. It was my Turbin3 capstone.</li>
 			<li>Open to remote Rust backend and Solana work.</li>

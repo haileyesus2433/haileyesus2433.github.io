@@ -18,7 +18,7 @@ AI providers sell prepaid credits that you buy with an international card and ca
 
 ## What I built
 
-The on-chain program holds the funds. A user locks a capped budget into a session for one relayer and a set of models. The relayer reports raw token counts, and the program prices them at on-chain rates. It rejects any charge above the cap and returns unspent funds to the vault.
+The on-chain program holds the funds, and a user locks a capped budget into a session for one relayer and a set of models. The relayer reports raw token counts, and the program prices them at on-chain rates. It rejects any charge above the cap and returns unspent funds to the vault.
 
 Around that program, I built:
 
@@ -31,7 +31,9 @@ Around that program, I built:
 
 I made the relayer hold the worst-case cost of every request before forwarding it. The program rejects a settlement above the session's cap outright, so the relayer must never serve more than the cap can pay for.
 
-Each hold uses the higher of the current and any pending model rate, and pads the prompt estimate, because the provider's own token count is what gets billed. If the budget can't cover the requested `max_tokens`, the relayer cuts it down. The cost is caution. A session can't spend the last of its budget, and the relayer refuses concurrent requests while earlier ones hold money they may not use.
+Each hold uses the higher of the current and pending rates. It pads the prompt estimate, since the provider's count is what gets billed. If the budget can't cover the requested `max_tokens`, the relayer cuts it down.
+
+The cost is caution. A session can't spend the last of its budget, and the relayer refuses concurrent requests while earlier ones hold money they may not use.
 
 <figure class="excerpt">
 

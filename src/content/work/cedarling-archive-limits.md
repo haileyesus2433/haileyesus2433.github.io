@@ -13,7 +13,7 @@ order: 5
 
 ## The problem
 
-Cedarling loads policy stores from `.cjar` files, which are ZIP archives. A small archive can decompress into gigabytes and exhaust memory. The ZIP central directory records each entry's size, but whoever builds the archive writes those numbers.
+Cedarling loads policy stores from `.cjar` files, which are ZIP archives. A small archive can decompress into far more data than it holds and exhaust memory. The ZIP central directory records each entry's size, but whoever builds the archive writes those numbers.
 
 ## What I built
 

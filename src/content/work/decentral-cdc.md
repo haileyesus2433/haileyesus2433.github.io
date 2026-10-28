@@ -11,7 +11,7 @@ order: 9
 
 ## The problem
 
-I led the backend of a live buy-now-pay-later platform at Decentral Technologies. Several services had to react when rows changed in PostgreSQL, across more than one database. The code is private, so this page describes the design without excerpts.
+I led the backend of a live buy-now-pay-later platform at Decentral Technologies. Other services on the platform had to react when rows changed in PostgreSQL, across more than one database. The code is private, so this page describes the design without excerpts.
 
 ## What I built
 

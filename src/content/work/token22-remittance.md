@@ -19,7 +19,7 @@ A remittance stablecoin has to answer to three parties. The issuer wants a fee o
 
 I wrote this Anchor program for Turbin3 in September 2026.
 
-- `create_remittance_mint` stacks transfer fees, a metadata pointer to the mint itself, a mint close authority and a default `Frozen` state, so every new account starts frozen.
+- `create_remittance_mint` stacks transfer fees, a self-pointing metadata pointer, a close authority and a default `Frozen` state. Every new account starts frozen.
 - `thaw_kyc_account` unfreezes one account after KYC and leaves the mint's default state alone.
 - `transfer_with_fee` works out the expected fee for the current epoch before calling `transfer_checked_with_fee`.
 - `reissue_remittance_mint` adds a permanent delegate for seizures and confidential transfers.
