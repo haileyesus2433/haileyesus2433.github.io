@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
 	import { resolve } from '$app/paths';
 	import { formatDate } from '#lib/dates.ts';
 
@@ -6,10 +7,7 @@
 	const meta = $derived(data.meta);
 </script>
 
-<svelte:head>
-	<title>{meta.title} · Haileyesus Ayanaw</title>
-	<meta name="description" content={meta.summary} />
-</svelte:head>
+<Seo title={`${meta.title} · Haileyesus Ayanaw`} description={meta.summary} type="article" />
 
 <article class="columns flow">
 	<header class="flow">

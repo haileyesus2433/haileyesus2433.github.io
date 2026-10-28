@@ -1,17 +1,15 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
 	import { resolve } from '$app/paths';
 	import WorkList from '#lib/components/WorkList.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>Haileyesus Ayanaw · Rust developer</title>
-	<meta
-		name="description"
-		content="Rust developer. Authorization engine features in Cedarling, Solana programs and backend services, with case studies and real code."
-	/>
-</svelte:head>
+<Seo
+	title="Haileyesus Ayanaw · Rust developer"
+	description="Rust developer. Authorization engine features in Cedarling, Solana programs and backend services, with case studies and real code."
+/>
 
 <div class="columns flow">
 	<header class="intro flow">

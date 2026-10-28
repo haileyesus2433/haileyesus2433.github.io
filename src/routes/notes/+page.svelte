@@ -1,17 +1,15 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
 	import { resolve } from '$app/paths';
 	import { formatDate } from '#lib/dates.ts';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>Notes · Haileyesus Ayanaw</title>
-	<meta
-		name="description"
-		content="Short technical notes from my own Rust and Solana work, each built around one real code example."
-	/>
-</svelte:head>
+<Seo
+	title="Notes · Haileyesus Ayanaw"
+	description="Short technical notes from my own Rust and Solana work, each built around one real code example."
+/>
 
 <div class="columns flow">
 	<h1>Notes</h1>

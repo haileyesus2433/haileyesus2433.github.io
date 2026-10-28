@@ -4,8 +4,19 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
+	import { SITE } from '#lib/site.ts';
 
 	let { children } = $props();
+
+	const person = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: SITE.name,
+		jobTitle: SITE.jobTitle,
+		url: SITE.url,
+		email: `mailto:${SITE.email}`,
+		sameAs: SITE.sameAs
+	});
 
 	const nav = [
 		{ href: '/work', label: 'Work' },
@@ -18,6 +29,15 @@
 		return path === resolve(href) || path.startsWith(resolve(href) + '/');
 	}
 </script>
+
+<svelte:head>
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+	<link rel="icon" href="/favicon.ico" sizes="32x32" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<meta name="theme-color" content="#fbfbf8" media="(prefers-color-scheme: light)" />
+	<meta name="theme-color" content="#121615" media="(prefers-color-scheme: dark)" />
+	{@html `<script type="application/ld+json">${person}</script>`}
+</svelte:head>
 
 <a class="skip-link" href="#main">Skip to content</a>
 

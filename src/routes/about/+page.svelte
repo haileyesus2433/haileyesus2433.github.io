@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
 	import { resolve } from '$app/paths';
 
 	const history = [
@@ -23,13 +24,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>About · Haileyesus Ayanaw</title>
-	<meta
-		name="description"
-		content="Rust developer in Addis Ababa, working remotely. Work history, Turbin3, Cyfrin Updraft certificates and contact details."
-	/>
-</svelte:head>
+<Seo
+	title="About · Haileyesus Ayanaw"
+	description="Rust developer in Addis Ababa, working remotely. Work history, Turbin3, Cyfrin Updraft certificates and contact details."
+/>
 
 <div class="columns flow">
 	<h1>About</h1>

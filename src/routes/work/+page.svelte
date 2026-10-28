@@ -1,16 +1,14 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
 	import WorkList from '#lib/components/WorkList.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>Work · Haileyesus Ayanaw</title>
-	<meta
-		name="description"
-		content="Case studies: Cedarling open-source contributions, Solana programs, Rust crates and coursework."
-	/>
-</svelte:head>
+<Seo
+	title="Work · Haileyesus Ayanaw"
+	description="Case studies: Cedarling open-source contributions, Solana programs, Rust crates and coursework."
+/>
 
 <div class="columns flow">
 	<h1>Work</h1>
