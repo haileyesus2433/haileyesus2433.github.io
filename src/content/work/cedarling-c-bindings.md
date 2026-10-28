@@ -8,7 +8,7 @@ group: open-source
 links:
   code: https://github.com/JanssenProject/jans/tree/main/jans-cedarling/bindings/cedarling_c
   pr: https://github.com/JanssenProject/jans/pull/13542
-order: 5
+order: 7
 ---
 
 ## The problem

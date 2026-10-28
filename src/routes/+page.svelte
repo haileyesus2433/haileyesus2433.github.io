@@ -9,7 +9,7 @@
 	<title>Haileyesus Ayanaw · Rust developer</title>
 	<meta
 		name="description"
-		content="Rust developer. Backend systems and blockchain. Open-source work on Cedarling, Solana programs and the dynarule crate."
+		content="Rust developer. Authorization engine features in Cedarling, Solana programs and backend services, with real code from each."
 	/>
 </svelte:head>
 

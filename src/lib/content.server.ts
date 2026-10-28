@@ -19,7 +19,7 @@ const noteMeta = import.meta.glob<Frontmatter>('/src/content/notes/*.md', {
 	import: 'metadata'
 });
 
-const WORK_STATUSES: readonly WorkStatus[] = ['shipped', 'in progress', 'coursework'];
+const WORK_STATUSES: readonly WorkStatus[] = ['shipped', 'mvp', 'in progress', 'coursework'];
 
 function slugOf(path: string): string {
 	return path.slice(path.lastIndexOf('/') + 1, -'.md'.length);

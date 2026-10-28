@@ -1,6 +1,6 @@
 import type { Component } from 'svelte';
 
-export type WorkStatus = 'shipped' | 'in progress' | 'coursework';
+export type WorkStatus = 'shipped' | 'mvp' | 'in progress' | 'coursework';
 
 export type WorkGroup = 'open-source' | 'solana' | 'other' | 'coursework';
 

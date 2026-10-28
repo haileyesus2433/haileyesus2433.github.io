@@ -3,7 +3,7 @@ title: BlockRouter
 summary: MVP of a self-custodial stablecoin payment gateway for AI inference on Solana.
 role: Relayer, CLI, web dashboard and client
 stack: [Rust, Anchor, Solana, TypeScript, Hono, SQLite]
-status: shipped
+status: mvp
 group: solana
 links:
   code: https://github.com/haileyesus2433/BlockRouter

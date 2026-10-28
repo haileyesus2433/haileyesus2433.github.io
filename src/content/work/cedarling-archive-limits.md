@@ -8,7 +8,7 @@ group: open-source
 links:
   code: https://github.com/JanssenProject/jans/blob/main/jans-cedarling/cedarling/src/common/policy_store/archive_handler.rs
   pr: https://github.com/JanssenProject/jans/pull/15050
-order: 6
+order: 5
 ---
 
 ## The problem

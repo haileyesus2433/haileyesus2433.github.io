@@ -5,6 +5,7 @@
 
 	const labels: Record<WorkStatus, string> = {
 		shipped: 'Shipped',
+		mvp: 'MVP',
 		'in progress': 'In progress',
 		coursework: 'Coursework'
 	};

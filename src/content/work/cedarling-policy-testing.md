@@ -8,7 +8,7 @@ group: open-source
 links:
   code: https://github.com/JanssenProject/jans/tree/main/jans-cedarling/cedarling-cli
   pr: https://github.com/JanssenProject/jans/pull/14673
-order: 7
+order: 6
 ---
 
 ## The problem

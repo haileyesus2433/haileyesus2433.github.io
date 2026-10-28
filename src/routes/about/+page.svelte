@@ -6,7 +6,7 @@
 			role: 'Rust Developer (contract)',
 			org: 'Gluu',
 			dates: 'Jun 2025 to present',
-			line: 'Open-source work on Cedarling, the authorization engine of the Janssen Project.'
+			line: "Build Cedarling's batch authorization, language bindings, policy store security and developer tools in the Janssen Project."
 		},
 		{
 			role: 'Lead Backend Developer',
@@ -56,8 +56,8 @@
 		<h2 id="training-heading">Training and education</h2>
 		<ul class="plain">
 			<li>
-				Turbin3 graduate, Q3 2026 cohort. My capstone was
-				<a href={resolve('/work/[slug]', { slug: 'blockrouter' })}>BlockRouter</a>.
+				Turbin3 graduate, Q3 2026 cohort. My capstone was the
+				<a href={resolve('/work/[slug]', { slug: 'blockrouter' })}>BlockRouter MVP</a>.
 			</li>
 			<li>
 				Cyfrin Updraft certificates in Advanced Foundry, Solidity Smart Contract Development,
