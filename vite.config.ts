@@ -13,6 +13,11 @@ export default defineConfig(({ mode }) => ({
 					// The CV is added by hand. Until static/cv.pdf exists, its link is the one allowed 404.
 					if (path === '/cv.pdf') return;
 					throw new Error(message);
+				},
+				handleUnseenRoutes: ({ routes, message }) => {
+					// A [slug] route with no content files yet has nothing to prerender.
+					if (routes.every((r) => r === '/notes/[slug]')) return;
+					throw new Error(message);
 				}
 			},
 			extensions: ['.svelte', '.md'],
