@@ -24,7 +24,33 @@
 		/>
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover">
+	<body>
 		<div style="display: contents">%sveltekit.body%</div>
+		<script>
+			// Theme toggle: the only script on the site.
+			(function () {
+				var root = document.documentElement;
+				var button = document.getElementById('theme-toggle');
+				if (!button) return;
+				var dark = matchMedia('(prefers-color-scheme: dark)');
+				function current() {
+					var t = root.dataset.theme;
+					if (t === 'light' || t === 'dark') return t;
+					return dark.matches ? 'dark' : 'light';
+				}
+				function sync() {
+					button.setAttribute('aria-pressed', String(current() === 'dark'));
+				}
+				button.addEventListener('click', function () {
+					root.dataset.theme = current() === 'dark' ? 'light' : 'dark';
+					try {
+						localStorage.setItem('theme', root.dataset.theme);
+					} catch (e) {}
+					sync();
+				});
+				dark.addEventListener('change', sync);
+				sync();
+			})();
+		</script>
 	</body>
 </html>

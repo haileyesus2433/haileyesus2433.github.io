@@ -93,6 +93,15 @@ function annotate(start: number, notes: Set<number>): ShikiTransformer {
 	};
 }
 
+// Excerpts cut from deep inside a function carry its indentation. Strip the
+// shared leading whitespace for display; the line numbers still match the file.
+function dedent(code: string): string {
+	const lines = code.replace(/\n$/, '').split('\n');
+	const indents = lines.filter((l) => l.trim()).map((l) => /^[ \t]*/.exec(l)![0].length);
+	const min = indents.length ? Math.min(...indents) : 0;
+	return lines.map((l) => l.slice(min)).join('\n');
+}
+
 // Runs at build time. The output is static HTML with a CSS variable per theme,
 // so no highlighter ships to the browser.
 export function highlight(
@@ -101,6 +110,7 @@ export function highlight(
 	meta?: string | null,
 	file = 'code block'
 ): string {
+	code = dedent(code);
 	const lineCount = code.replace(/\n$/, '').split('\n').length;
 	const { start, notes } = parseMeta(meta, lineCount, file);
 	const html = highlighter.codeToHtml(code, {
